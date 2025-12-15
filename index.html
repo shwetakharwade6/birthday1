@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Bestie 🎉</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: linear-gradient(135deg, #ff512f, #dd2476, #24c6dc, #514a9d);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+    }
+
+    /* SIMPLE CARD */
+    .page {
+      display: none;
+      text-align: center;
+      padding: 35px 25px;
+      max-width: 420px;
+      background: rgba(0,0,0,0.55);
+      border-radius: 22px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+      animation: fadeIn 1s ease;
+    }
+
+    .page.active { display: block; }
+
+    h1 { font-size: 2.1rem; margin-bottom: 10px; }
+    h1 span { color: #ffd369; }
+
+    p { font-size: 1.05rem; line-height: 1.6; margin: 15px 0; }
+
+    .emoji { font-size: 2rem; margin: 10px 0; }
+
+    .photo {
+      width: 180px;
+      height: 220px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 5px solid #ffd369;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+    }
+
+    .btn {
+      margin-top: 18px;
+      padding: 12px 30px;
+      background: #ffd369;
+      color: #203a43;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PAGE 1 -->
+  <div class="page active">
+    <div class="emoji">🎂🎉</div>
+    <img src="friend1.jpeg" class="photo" />
+    <h1>Happy Birthday <span>Shekharoo</span> ❤️</h1>
+    <p>To my crazy 😎, supportive 🤝, and irreplaceable friend.  Today is all about you 😎✨</p>
+    <button class="btn" onclick="nextPage()">Next ➡️</button>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page">
+    <div class="emoji">🤝💙</div>
+    <img src="friend3.jpeg" class="photo" />
+    <h1>Dosti Forever</h1>
+    <p>
+      Laughs 😂, support 💪, madness 🤪 - late-night talks 🌙. 
+      You make life more fun just by being in it 💙
+      everything is better with you.
+    </p>
+    <button class="btn" onclick="nextPage()">Next ➡️</button>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div class="page">
+    <div class="emoji">🥂🎊</div>
+    <img src="friend2.jpeg" class="photo" />
+    <h1>Always With You</h1>
+    <p>
+      May your life be full of success 🚀,
+      happiness 😄 and endless wins 🏆
+    </p>
+    <p><strong>Happy Birthday, Legend! 🎉</strong></p>
+  </div>
+
+  <!-- MUSIC -->
+  <audio id="song" autoplay loop>
+    <source src="birthday1.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    let current = 0;
+    const pages = document.querySelectorAll('.page');
+
+    function nextPage() {
+      pages[current].classList.remove('active');
+      current = (current + 1) % pages.length;
+      pages[current].classList.add('active');
+      document.getElementById('song').play();
+    }
+  </script>
+
+</body>
+</html>
